@@ -16,13 +16,12 @@ def is_path(path):
 def email():
     msg = EmailMessage()
     msg.set_content('This is my message')
-
-    msg['Subject'] = 'Hey This is Face of Charan'
-    msg['From'] = "charancmrit@gmail.com"
-    msg['To'] = "charan316.cv@gmail.com"
+    msg['Subject'] = 'Your Subject'
+    msg['From'] = "sender-mail-id"
+    msg['To'] = "receiver-mail-id"
     password = getpass.getpass("Enter you mail password: ")
     server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.login("charancmrit@gmail.com", password)
+    server.login("sender-mail-id", password)
     server.send_message(msg)
     server.quit()
 
@@ -30,7 +29,9 @@ def email():
 def whatsapp():
     hour = datetime.datetime.now().hour
     minute = datetime.datetime.now().minute + 1
-    pywhatkit.sendwhatmsg('+918200812925', '!! Just Chemcking Comde !! .HueHueHue.', hour, minute)
+    receivers_no = '' #with country code
+    msg = ''
+    pywhatkit.sendwhatmsg(receivers_no, msg, hour, minute)
 
 
 def create_key_pair():
